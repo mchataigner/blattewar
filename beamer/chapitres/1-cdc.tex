@@ -1,0 +1,50 @@
+\section{Cahier des charges}
+
+\subsection{Architecture de l'application}
+\begin{frame}[c]{\insertsubsection{}}
+    \begin{block}{Fonctionnalités :}
+        \begin{itemize}
+        \item Une interface permettant aux utilisateurs d'implémenter leur IA \pause
+        \item Un serveur qui gère :
+        
+            $\bullet$ Les connections des clients
+            
+            $\bullet$ Le match (arène et interactions des blattes)
+            
+            $\bullet$ Le déroulement de la partie (phases)
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Le jeu}
+\begin{frame}[c]{\insertsubsection{}}
+        \begin{block}{Règles du jeu}
+        \begin{itemize}
+        \item Tour par tour
+        \item Nombre défini de points de vie
+        \item 3 actions possibles : Attaque, Déplacement ou Attente
+        \item Condition de victoire : survie ou case sortie
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}[c]{}
+    \begin{block}{L'arène}
+        \begin{itemize}
+        \item Constituées de cases, Sol ou Mur
+        \item Une ou plusieurs cases sortie
+        \item Chaque case possède 0 ou 1 propriété
+        \end{itemize}
+    \end{block}
+    
+    \pause
+    
+    \begin{block}{Les blattes}
+        \begin{itemize}
+        \item 1 blatte par client
+        \item Possèdent un champ de vision de portée 1 case
+        \item Peuvent se déplacer d'une case maximum par tour
+        \end{itemize}
+    \end{block}
+\end{frame}

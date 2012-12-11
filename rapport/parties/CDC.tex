@@ -1,0 +1,51 @@
+\chapter{Cahier Des Charges}
+%\addcontentsline{toc}{chapter}{Cahier Des Charges}
+\thispagestyle{fancy}
+\lhead{Cahier Des Charges}
+
+\section{Description de l'application}
+    Il s'agit d'une application répartie de type client/serveur. Les joueurs connectent leur clients au serveur, ce qui leur permet de mesurer leur Intelligence Artificielle (IA) à celles des autres joueurs.
+    
+    Chaque joueur incarne une blatte dans le jeu. Les blattes évoluent dans une arène de type labyrinthe rectangulaire, constituée de cases pouvant être des obstacles (murs) ou des emplacements sur lesquels peuvent se trouver les blattes. Des objets disposant de propriétés particulières utilisables par les blattes peuvent se trouvent sur les cases libres (exemple : mine antipersonnel).
+
+\section{Liste des fonctionnalités du produit final}
+     \subsection{L'architecture de l'application}
+         L'application doit fournir les fonctionnalités suivantes :
+         \begin{itemize}
+             \item Une interface doit permettre aux utilisateurs d'implémenter leur blatte ;
+             \item Le serveur doit permette à des clients implémentant l'interface correspondant à une blatte de se connecter ;
+             \item Le serveur doit gérer tout ce qui concerne l'architecure de l'arène ;
+             \item Le serveur gère les interactions entre les blattes, le début et fin de partie, ainsi que les différentes phases de celle-ci.
+         \end{itemize}
+         
+\newpage
+    \subsection{Le jeu}
+        Le jeu doit respecter les points suivants : 
+        
+        \paragraph{L'arène :}
+        \begin{itemize}
+            \item L'\texttt{arène} est supportée par le serveur;	
+            \item L'arène est constituée de cases dont certaines sont murées (impossibles à traverser);	
+            \item Chaque client présente une unique \texttt{blatte} contrôlée par une IA sur le terrain;
+            \item Une case non murée de l'arène représente la case de victoire (non nécessairement bord de l'arène);
+            \item Certaines cases non murées représentent des points de "Respawn" ou "Départ" (Lorsqu'une blatte meurt, elle peut réapparaître dessus);
+            \item Une case peut posséder une propriété affectant la blatte se trouvant sur elle ;
+            \item Les conditions de victoire pour un joueur sont la survie de sa blatte ou l'arrivée d'une blatte sur la case de victoire;
+            \item Jeu au tour par tour, chaque client décide sa prochaine action et l'envoie au serveur avant que ce dernier n'effectue toutes les actions (ordonnancement des actions à définir).
+        \end{itemize}
+        
+        \paragraph{Les blattes :}
+        \begin{itemize}
+            \item Chaque blatte a un nombre défini de vies et voit uniquement une case dans les 4 directions (avant, arrière, côté gauche, droit);
+            \item Les actions possibles d'une blatte sont :
+                \begin{itemize}
+                    \item Avancer d'une case;
+                    \item Attaquer au corps à corps;
+                    \item Passer son tour;
+                \end{itemize}
+            \item La rencontre de deux blattes sur une même case entraîne obligatoirement la mort d'une des deux;
+            \item Le serveur envoie au client à chaque tour une portion de map vue par la blatte;
+            \item Chaque client envoie au serveur le coup joué.
+        \end{itemize}
+
+

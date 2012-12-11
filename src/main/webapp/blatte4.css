@@ -1,0 +1,125 @@
+body {
+text-align:center;
+margin-left:auto;
+margin-top: 170px;
+color:black;
+background-color:white;
+background-image:url(images/mat.png);
+background-repeat:no-repeat;
+background-position: center 9px;
+overflow:auto;
+}
+
+div.choix_theme{
+margin-top: 170px;
+margin-left:50px;
+}
+div.NomsBlattes{
+position:fixed;
+right:90px;
+top:250px;
+}
+div.arene
+{
+text-align:center;
+background-color:white;
+}
+
+td.arene
+{
+text-align:center;
+margin: auto;
+}
+
+table.arene{
+background-color:white;
+margin: auto;
+text-align:center;
+font-weight : bold;
+}
+
+table.arene td.sol{
+font-weight : bold;
+width: 24px;
+height: 30px;
+
+}
+
+table.arene td.mur{
+width: 24px;
+height: 30px;
+background-image : url("images/mur4.jpg");
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+table.arene td.objet{
+font-weight : bold;
+width: 24px;
+height: 30px;
+background-image : url("images/objet.jpg");
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+
+}
+
+table.arene td.depart{
+background-color: gray;
+font-weight : bold;
+width: 24px;
+height: 30px;
+}
+table.arene td.sortie{
+font-weight : bold;
+background-image : url("images/victoire.jpg");
+width: 24px;
+height: 30px;
+}
+table.arene td.joueur{
+background-image : url("images/blatte.png");
+}
+
+table.arene td.joueur#j1{
+background-color : blue;
+}
+
+table.arene td.joueur#j2{
+background-color : red;
+}
+
+table.arene td.joueur#j3{
+background-color : green;
+}
+
+table.arene td.joueur#j4{
+background-color : black;
+}
+
+table.arene td.joueur#j5{
+background-color : teal;
+}
+
+table.arene td.joueur#j6{
+background-color : purple;
+}
+
+table.arene td.joueur#j7{
+background-color : gray;
+}
+
+table.arene td.joueur#j8{
+background-color : maroon;
+}
+
+table.arene td.joueur#j9{
+background-color : pink;
+}
+
+table.arene td.joueur#j10{
+background-color : navy;
+}
+
+
+

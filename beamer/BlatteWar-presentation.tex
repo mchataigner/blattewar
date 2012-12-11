@@ -1,0 +1,54 @@
+\documentclass[]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{calc}
+\usefonttheme[onlymath]{serif}
+
+\author{Pierre \textsc{Bienaimé}\\Bastien \textsc{Bonnet}\\Mathieu \textsc{Chataigner}\\Mathieu \textsc{Fresquet}\\Pâris \textsc{Meuleman}\\Yves \textsc{Parès}\\Thibaut \textsc{Reiter}}
+\title{Projet Informatique répartie 2010 :\\BlatteWar}
+\institute{INSA de Rouen, ASI}
+
+\usepackage{insaBeamer}
+
+\begin{document}
+
+\addtocounter{section}{-1}
+\section*{Page de garde}
+
+\begin{frame}
+  \pageDeGarde{\insertauthor}{\inserttitle}{}
+\end{frame}
+
+\begin{frame}
+  % Présentation du plan générale
+  \thispagestyle{empty}
+  \begin{picture}(0,0)
+    \put(-99.5,-20){\includegraphics[width=18cm,height=3.5cm]{images/vol3.pdf}}
+    \put(100.5,-130){\begin{turn}{90} {\color{GRIS}\rule{70mm}{1pt}} \end{turn}}
+%    \inserttocsectionnumber
+    \put(110,-30){\begin{minipage}{8cm}\tableofcontents[hideallsubsections]
+ \end{minipage}}
+  \end{picture}
+\end{frame}
+
+\input{chapitres/0-introduction}
+
+\input{chapitres/1-cdc}
+
+\input{chapitres/2-conception}
+
+\input{chapitres/3-demonstration}
+
+\input{chapitres/4-conclusion}
+
+\begin{frame}
+  \pageFinale{\insertauthor}
+\end{frame}
+
+\end{document}

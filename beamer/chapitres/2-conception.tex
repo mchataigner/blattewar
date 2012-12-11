@@ -1,0 +1,44 @@
+\section{Conception}
+
+\subsection{Diagramme de classe}
+
+\begin{frame}[c]{\insertsubsection{}}
+    \begin{block}
+        Communication par 2 Remote Objects :
+        \begin{description}
+            \item[Serveur] Classe Simulateur
+            \item[Client] Interface Joueur: \\
+                méthode determinerAction(Blatte, ChampVision) : Action
+        \end{description}
+
+        Action = Attente OU Deplacement OU Attaque
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}
+        Architecture du jeu :
+        \begin{itemize}
+            \item MoteurJeu
+            \item Arene > Case > Blatte
+            \item Case = Mur OU Sol OU Depart OU Sortie
+            \item Singleton DescPropriete: \\
+                 méthode effet(Blatte)
+             \item Propriete
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Choix des technologies}
+
+\begin{frame}[c]{\insertsubsection}
+    \begin{block}{Technologies utilisées :}
+        \begin{itemize}
+        \item Communication : RMI 
+        \item Serveur : EJB
+        \item Affichage : JSP
+        \item Rapports de match : XML et XSLT
+        \end{itemize}
+    \end{block}
+\end{frame}
+

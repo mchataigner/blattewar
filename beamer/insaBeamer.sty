@@ -1,0 +1,88 @@
+\usepackage{epic,eepic}
+\usepackage{rotating}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{color,xcolor}
+
+\definecolor{GRIS}{cmyk}{0.7,0.6,0.5,0.3}
+\definecolor{BLEU}{cmyk}{1,0.9,0.1,0}
+\definecolor{GRIS_p}{cmyk}{0.37,0.29,0.27,0}
+\definecolor{BLEU_p}{cmyk}{0.44,0.33,0.06,0}
+\definecolor{GM-ASI}{cmyk}{0.6,0,0,0}
+\definecolor{EP-MEKA}{cmyk}{0.3,1,0,0}
+\definecolor{CP-MRIE}{cmyk}{0.3,0,1,0}
+\definecolor{GCCD}{cmyk}{0,0.5,1,0}
+%\setbeamertemplate{sections in toc}[sections numbered] %original version
+\setbeamertemplate{sections/subsections in toc}[sections numbered] %mathieu's version
+
+\setbeamertemplate{blocks}[rounded]
+\setbeamerfont{petit}{size=\scriptsize}% ,series={\fontseries{el}}}
+\useoutertheme{miniframes}
+\setbeamercolor{section in toc}{fg=BLEU,bg=white,square}
+\setbeamercolor{subsection in toc}{fg=GRIS,bg=white}
+\setbeamertemplate{sections in toc}{square}
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\pageDeGarde}[3]{
+  \thispagestyle{empty}
+  \begin{picture}(0,0)
+    \put(-109.5,-160){\includegraphics[width=18cm,height=3.5cm]{images/vol3inverse.pdf}}
+    \put(15,50){\includegraphics[scale=0.35]{images/logoasi.png}}
+    \put(-110,-60){\begin{minipage}{\textwidth}\color{GRIS} \raggedleft \tiny \insertdate{} \end{minipage}}
+    \put(201,-150){\begin{turn}{90} {\color{GRIS}\rule{70mm}{1pt}} \end{turn}}
+    \put(205,0){\begin{minipage}{6cm}\raggedright{\color{GRIS} #1 }\end{minipage}}
+    \put(18,0){\begin{minipage}{6cm}{\begin{center}\color{BLEU} #2\end{center}}\end{minipage}}
+    \put(204,-100){\begin{minipage}{4cm}{\color{BLEU}\tiny{ #3 }}\end{minipage}}
+  \end{picture}
+}
+
+\newcommand{\pageFinale}[1]{
+  \begin{picture}(0,0)
+    \put(-109.5,-110){\includegraphics[width=18cm,height=3.5cm]{images/vol3inverse.pdf}}
+    
+ \put(0,0){\begin{minipage}{6cm}\raggedright{\color{GRIS} #1 }\end{minipage}}
+
+    \put(204,-100){\includegraphics[scale=0.2]{images/logoinsa.pdf}}
+    \put(201,-105){\begin{turn}{90} {\color{GRIS}\rule{50mm}{1pt}} \end{turn}}
+    \put(-20,20){\begin{minipage}{7.7cm}\raggedleft{\bfseries\color{GRIS} Questions}\end{minipage}}
+    \put(204,0){\begin{minipage}{4cm}{\color{BLEU}Merci de votre attention}\end{minipage}}
+  \end{picture}
+}
+
+\setbeamertemplate{headline}
+{
+  \begin{picture}(0,0) 
+    \put(270,-10){{\color{GRIS}\begin{minipage}{32mm} \inserttitle{} \end{minipage} }}
+%    \put(3,-10){{\color{GRIS}\begin{minipage}{40mm}\raggedleft \usebeamerfont{petit} \insertsection \end{minipage}}} %original
+    \put(3,-10){{\color{GRIS}\begin{minipage}{43mm}\raggedleft \usebeamerfont{petit} \thesection . \insertsection \end{minipage}}} %proposition
+    \put(130,-19){\begin{turn}{90} {\color{GRIS}\rule{10mm}{0.6pt}} \end{turn}}
+    \put(135,-16){{\color{BLEU}{\begin{minipage}{\textwidth} \usebeamerfont{petit} \insertsubsection\end{minipage}}}}
+  \end{picture}
+  \vspace{7mm}
+}
+
+
+\setbeamertemplate{footline}
+{
+  \vspace{3mm}
+  \begin{picture}(0,0)
+    %\put(33,5){{\color{GRIS}\begin{minipage}{40mm} \insertauthor{} \end{minipage} }}
+    \put(-150,5){\begin{minipage}{\textwidth}\color{GRIS} \raggedleft \tiny \insertdate{} \end{minipage}}
+    \put(-71,-30){\includegraphics[width=18cm,height=2cm]{images/vol3.pdf}}
+    \put(-5,5){\begin{minipage}{\textwidth}\color{GRIS} \raggedleft \tiny Page \insertframenumber{} sur \inserttotalframenumber{} \end{minipage}}
+  \end{picture}
+}
+
+
+\AtBeginSection[]{
+  \begin{frame}
+    \thispagestyle{empty}
+    \begin{picture}(0,0)
+      \put(-99.5,-20){\includegraphics[width=18cm,height=3.5cm]{images/vol3.pdf}}
+      \put(100.5,-130){\begin{turn}{90} {\color{GRIS}\rule{70mm}{1pt}} \end{turn}}
+%      \put(60,-50){{\color{GRIS}\thesection}} %original
+      \put(40,-50){{\color{GRIS}Partie \thesection}} %proposition
+      \put(110,-30){\begin{minipage}{8cm}\tableofcontents[currentsection,hideothersubsections,hideallsubsubsections] \end{minipage}}
+    \end{picture}
+  \end{frame}
+}

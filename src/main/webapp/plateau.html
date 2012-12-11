@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<link rel="stylesheet" type="text/css" href="blatte.css" title="1">
+<link rel="stylesheet" type="text/css" href="blatte2.css" title="2">
+<link rel="stylesheet" type="text/css" href="blatte3.css" title="3">
+<link rel="stylesheet" type="text/css" href="blatte4.css" title="4">
+<link rel="stylesheet" type="text/css" href="blatte5.css" title="5">
+
+
+<html>
+<head>
+	<title>Test de plateau</title>
+
+
+</head>
+<body>
+<script type="text/javascript">
+function Ajax(){
+var xmlHttp;
+	try{	
+		xmlHttp=new XMLHttpRequest();// Firefox, Opera 8.0+, Safari
+	}
+	catch (e){
+		try{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP"); // Internet Explorer
+		}
+		catch (e){
+		    try{
+				xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch (e){
+				alert("No AJAX!?");
+				return false;
+			}
+		}
+	}
+
+xmlHttp.onreadystatechange=function(){
+	if(xmlHttp.readyState==4){
+		document.getElementById('match').innerHTML=xmlHttp.responseText;
+		setTimeout('Ajax()',200);
+	}
+}
+xmlHttp.open("GET","/BlatteView/arene.jsp",true);
+xmlHttp.send(null);
+}
+
+window.onload=function(){
+	setTimeout('Ajax()',200);
+}
+</script>
+
+<script type="text/javascript">
+// *** TO BE CUSTOMISED ***
+
+var style_cookie_name = "style" ;
+var style_cookie_duration = 30 ;
+
+// *** END OF CUSTOMISABLE SECTION ***
+
+function switch_style ( css_title )
+{
+  var i, link_tag ;
+  for (i = 0, link_tag = document.getElementsByTagName("link") ;
+    i < link_tag.length ; i++ ) {
+    if ((link_tag[i].rel.indexOf( "stylesheet" ) != -1) &&
+      link_tag[i].title) {
+      link_tag[i].disabled = true ;
+      if (link_tag[i].title == css_title) {
+        link_tag[i].disabled = false ;
+      }
+    }
+    set_cookie( style_cookie_name, css_title,
+      style_cookie_duration );
+  }
+}
+function set_style_from_cookie()
+{
+  var css_title = get_cookie( style_cookie_name );
+  if (css_title.length) {
+    switch_style( css_title );
+  }
+}
+function set_cookie ( cookie_name, cookie_value,
+    lifespan_in_days, valid_domain )
+{
+    // http://www.thesitewizard.com/javascripts/cookies.shtml
+    var domain_string = valid_domain ?
+                       ("; domain=" + valid_domain) : '' ;
+    document.cookie = cookie_name +
+                       "=" + encodeURIComponent( cookie_value ) +
+                       "; max-age=" + 60 * 60 *
+                       24 * lifespan_in_days +
+                       "; path=/" + domain_string ;
+}
+function get_cookie ( cookie_name )
+{
+    // http://www.thesitewizard.com/javascripts/cookies.shtml
+    var cookie_string = document.cookie ;
+    if (cookie_string.length != 0) {
+        var cookie_value = cookie_string.match (
+                        '(^|;)[\s]*' +
+                        cookie_name +
+                        '=([^;]*)' );
+        return decodeURIComponent ( cookie_value[2] ) ;
+    }
+    return '' ;
+}
+</script>
+
+
+
+<!--h1> BLATTE WAR </h1-->
+<div class="choix_theme">
+<form>
+<input type="submit"
+  onclick="switch_style('1');return false;"
+  name="theme" value="theme 1" id="1">
+<input type="submit"
+  onclick="switch_style('2');return false;"
+  name="theme" value="theme 2" id="2">
+<input type="submit"
+  onclick="switch_style('3');return false;"
+  name="theme" value="theme 3" id="3">
+ <input type="submit"
+  onclick="switch_style('4');return false;"
+  name="theme" value="theme 4" id="4">
+ <input type="submit"
+  onclick="switch_style('5');return false;"
+  name="theme" value="theme 5" id="5">
+</form>
+</div>
+<div id="match"></div>
+
+</body>
+</html>
+

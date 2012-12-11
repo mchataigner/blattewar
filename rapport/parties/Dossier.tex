@@ -1,0 +1,177 @@
+\documentclass[a4paper, twoside, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[footskip=2.7cm]{geometry}
+\usepackage{lscape}
+\usepackage{multicol}
+%\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{marvosym}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{supertabular}
+\usepackage {setspace}
+\RequirePackage[colorlinks=true,linkcolor=black]{hyperref}
+%\usepackage{fullpage}
+
+%\renewcommand{\rmdefault}{phv}
+
+%Specifie le dossier des images
+\graphicspath{{images/}}
+
+%%Configuration de listings -----------------------------------
+\lstset{%configuration de listings
+float=hbp,%
+basicstyle=\ttfamily\small, %
+identifierstyle=\color{colIdentifier}, %
+keywordstyle=\color{colKeys}, %
+stringstyle=\color{colString}, %
+commentstyle=\color{colComments}, %
+columns=flexible, %
+tabsize=2, %
+frame=trBL, %
+frameround=tttt, %
+extendedchars=true, %
+showspaces=false, %
+showstringspaces=false, %
+numbers=left, %
+numberstyle=\tiny, %1
+breaklines=true, %
+breakautoindent=true, %
+captionpos=b,%
+xrightmargin=0cm, %
+xleftmargin=-0cm, %
+language=tex, %
+frameround=fttt;%
+}
+%%Fin de la configuration de listings -----------------------------------
+
+\newcommand{\couverture}[0]{
+  \thispagestyle{
+    \fancyhf{}
+    \renewcommand{\footrulewidth}{0pt}
+    \renewcommand{\headrulewidth}{0pt}
+  }
+  \begin{picture}(0,0)
+    \put(0,-220){\includegraphics[width=15cm]{logoCle.png}} %pour mettre une image de fond qui sera recouverte.
+    \put(-75,-755){\includegraphics[width=211mm]{blatte.jpg}}
+    \put(140,-620){\begin{minipage}{13cm} \Large Blatte War\end{minipage}}
+    \put(-65,-600){\begin{minipage}{6.3cm} \Large \raggedleft Projet d'informatique répartie\end{minipage}}
+    \put(370,-750){\begin{minipage}{5cm} \raggedleft \footnotesize version 1.00 \end{minipage}}
+  \end{picture}
+}
+
+%\makeindex
+
+%Design de la couverture
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1pt\hfill \kern \z@}
+\def\maketitle{%
+  \thispagestyle{empty}%
+  \begin{picture}(0,0)
+    \put(-35,-300){\includegraphics[width=17cm]{blatte.jpg}} %pour mettre une image de fond qui sera recouverte.
+    \put(-100,-775){\includegraphics[width=211mm]{couverture.png}}
+    \put(110,-620){\begin{minipage}{13cm} \large Projet d'informatique répartie \\ \huge Blatte War \end{minipage}}
+    \put(-90,-620){\begin{minipage}{6.3cm} \Large \raggedleft Bienaimé Pierre\\Bonnet Bastien\\Chataigner Mathieu\\Fresquet Mathieu\\Meuleman Pâris \\Parès Yves\\Reiter Thibaut\\ \end{minipage}}
+    \put(350,-750){\begin{minipage}{5cm} \footnotesize À l'attention de A.Pauchet \end{minipage}}
+  \end{picture}
+  \clearpage
+}
+
+%En-tete et pied de page
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\lhead{\leftmark{}}
+\rhead{Blatte War}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,1}
+\definecolor{colString}{rgb}{0.6,0.6,0.1}
+\lfoot{Projet d'informatique répartie}
+\cfoot{\thepage}
+\rfoot{\includegraphics[width=2cm,height=0.7cm]{logoASI.pdf}}
+
+%\sloppy
+%\interfootnotelinepenalty=150 %note de bas de page
+%\widowpenalty=150
+%\clubpenalty=150 
+%\setlength{\parindent}{15mm}
+
+
+%%%% debut macro pour enlever le nom chapitre %%%%
+% \makeatletter
+% \def\@makechapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright \normalfont
+%     \interlinepenalty\@M
+%     \ifnum \c@secnumdepth >\m@ne
+%         \Huge\bfseries \thechapter\quad
+%     \fi
+%     \Huge \bfseries #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \def\@makeschapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright
+%     \normalfont
+%     \interlinepenalty\@M
+%     \Huge \bfseries  #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \makeatother
+%%%% fin macro %%%%
+
+
+
+\parskip=5pt
+
+\begin{document}
+
+\maketitle
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\begin{onehalfspace}
+
+  \input{parties/Introduction}
+  \input{parties/CDC}
+  \input{parties/ConceptionPreliminaire}
+  \input{parties/Developpement}
+  \input{parties/Conclusion}
+  
+\end{onehalfspace}
+
+\newpage
+\thispagestyle{empty}
+\begin{picture}(0,0)
+  \put(-100,-755){\includegraphics[width=211mm]{couvertureBis.pdf}}
+  \put(60, -550){
+    \begin{normalsize}
+      \begin{minipage}{10cm}
+        \begin{tabular}{r}
+          INSA de Rouen\\
+          Avenue de l'Université - BP 08\\
+          76801 Saint-Etienne-du-Rouvray Cedex\\
+          Tél : 02 32 95 97 79\\
+          Fax : 02 32 95 97 08\\
+          \textit{http://asi.insa-rouen.fr}\\
+        \end{tabular}
+      \end{minipage}
+    \end{normalsize}}
+  \put(300, -570){\includegraphics[scale=0.4]{logoASI.pdf}}
+\end{picture}
+
+\end{document}
